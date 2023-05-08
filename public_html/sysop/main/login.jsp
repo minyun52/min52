@@ -5,7 +5,7 @@ f.addElement("login_id", null, "hname:'아이디', required:'Y'");
 f.addElement("password", null, "hname:'비밀번호', required:'Y'");
 
 //변수
-String login_id = f.get("login_id");
+String loginId = f.get("login_id");
 String password = f.get("password");
 
 //객체
@@ -15,7 +15,7 @@ UserDao user = new UserDao();
 if(m.isPost() && f.validate()) {
     password = m.encrypt(password, "SHA-256");
     //아이디 불일치
-    DataSet info = user.find("login_id = '" + login_id + "'" + " AND user_type IN ('A', 'S')");
+    DataSet info = user.find("login_id = '" + loginId + "' AND user_type IN ('A', 'S')");
     if(!info.next()) {
         m.jsAlert("아이디 또는 비밀번호가 일치하지 않습니다.");
         return;
