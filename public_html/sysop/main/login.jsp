@@ -29,8 +29,8 @@ if(m.isPost() && f.validate()) {
         return;
     }
 
-    //중지 상태 또는 실패횟수 초과
-    if(info.i("status") != 1 || info.i("fail_count") >= 5) {
+    //실패횟수 초과
+    if(info.i("fail_count") >= 5) {
         m.jsAlert("로그인할 수 없습니다. 관리자에게 문의해 주시길 바랍니다.");
         return;
     }
